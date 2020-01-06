@@ -1,0 +1,21 @@
+schema: ./src/schema.graphql
+generates:
+  ./src/client/index.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      reactApolloVersion: 3
+      withHooks: true
+      withHoc: false
+      withComponent: false
+  ./src/server/index.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      useIndexSignature: true
+  ./src/schema.ts:
+    plugins:
+      - typescript-document-nodes
